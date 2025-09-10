@@ -12,7 +12,7 @@ class Student
 	char* name;
 	int age = 0;
 
-	const int t = 0;
+	const int t;
 
 	static int count;
 
@@ -29,16 +29,17 @@ public:
 
 	Student(const char* n, int a, int t) : t(t)
 	{
-		cout << "Constructor" << endl;
+		
 		name = new char[strlen(n) + 1];
 		strcpy_s(name, strlen(n) + 1, n);
 		age = a;
 		count++;
+		cout << "Constructor " << name << endl;
 	}
 
 	~Student()
 	{
-		cout << "Destructor" << endl;
+		cout << "Destructor " << name << endl;
 		if (name != nullptr)
 			delete[] name;
 		count--;
@@ -86,7 +87,7 @@ public:
 
 };
 
-int Student::count = 0;
+int Student::count{0};
 
 void Student::f()
 {

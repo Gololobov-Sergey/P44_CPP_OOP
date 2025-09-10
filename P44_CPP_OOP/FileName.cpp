@@ -10,10 +10,29 @@ inline void func()
 	cout << "**********************" << endl;
 }
 
+void printArray(Array a)
+{
+	a.print();
+}
+
 
 int main()
 {
 	srand(time(0));
+
+
+	// 10.09.2025
+
+
+	Array a(5);
+	a.randomFill(1, 10);
+	a.print();
+
+	//Student st("Vasya", 15, 99);
+	//st.print();
+
+	printArray(a);
+
 
 	//char* n;
 
@@ -53,16 +72,16 @@ int main()
 	func();*/
 
 	
-	Array b(10);
-	//b.fill(5);
-	b.randomFill(5, 15);
-	b.print();
-	b.resize(15);
-	b.print();
-	b.sort();
-	b.print();
-	b.add(99);
-	b.print();
+	//Array b(10);
+	////b.fill(5);
+	//b.randomFill(5, 15);
+	//b.print();
+	//b.resize(15);
+	//b.print();
+	//b.sort();
+	//b.print();
+	//b.add(99);
+	//b.print();
 
 	
 }

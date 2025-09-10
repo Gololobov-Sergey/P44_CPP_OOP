@@ -8,7 +8,7 @@ class Array
 
 public:
 
-	Array(size_t s);
+	explicit Array(size_t s);
 
 	~Array();
 
@@ -40,7 +40,7 @@ Array::Array(size_t s)
 
 Array::~Array()
 {
-	delete arr;
+	//delete arr;
 }
 
 void Array::fill(int number)
