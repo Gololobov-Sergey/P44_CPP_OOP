@@ -8,42 +8,57 @@ class Array
 
 public:
 
-	explicit Array(size_t s);
+	explicit Array(size_t size);
+
+	Array(const Array& obj);
 
 	~Array();
 
-	void fill(int number);
+	void fill(int number) const;
 
-	void randomFill(int min, int max);
+	void randomFill(int min, int max) const;
 
-	void print();
+	void print() const;
 
 	void resize(int newSize);
 
-	void sort();
+	void sort() const;
 
-	int minValue();
+	int minValue() const;
 
-	int maxValue();
+	int maxValue() const;
 
 	void add(int value);
 
-	void set(int index, int value);
+	void set(int index, int value) const;
 };
 
 
-Array::Array(size_t s)
+Array::Array(size_t size)
 {
-	size = s;
+	this->size = size;
+	this->arr = new int[size];
+	cout << "Constructor Array" << endl;
+}
+
+Array::Array(const Array& obj)
+{
+	size = obj.size;
 	arr = new int[size];
+	for (size_t i = 0; i < size; i++)
+	{
+		arr[i] = obj.arr[i];
+	}
+	cout << "Copy Constructor Array" << endl;
 }
 
 Array::~Array()
 {
-	//delete arr;
+	delete arr;
+	cout << "Destructor Array" << endl;
 }
 
-void Array::fill(int number)
+void Array::fill(int number) const
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -51,7 +66,7 @@ void Array::fill(int number)
 	}
 }
 
-void Array::randomFill(int min, int max)
+void Array::randomFill(int min, int max) const
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -59,7 +74,7 @@ void Array::randomFill(int min, int max)
 	}
 }
 
-void Array::print()
+void Array::print() const
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -88,7 +103,7 @@ void Array::resize(int newSize)
 	arr = temp;
 }
 
-void Array::sort()
+void Array::sort() const
 {
 	for (size_t i = 0; i < size - 1; i++)
 	{
@@ -102,7 +117,7 @@ void Array::sort()
 	}
 }
 
-int Array::minValue()
+int Array::minValue() const
 {
 	int min = arr[0];
 	for (size_t i = 0; i < size; i++)
@@ -113,7 +128,7 @@ int Array::minValue()
 	return min;
 }
 
-inline int Array::maxValue()
+inline int Array::maxValue() const
 {
 	int max = arr[0];
 	for (size_t i = 0; i < size; i++)
@@ -137,7 +152,7 @@ void Array::add(int value)
 	arr = arr2;
 }
 
-void Array::set(int index, int value)
+void Array::set(int index, int value) const
 {
 	if (index >= 0 && index < size)
 	{

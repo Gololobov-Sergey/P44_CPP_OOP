@@ -2,6 +2,7 @@
 
 #include "Student.h"
 #include "Array.h"
+#include"String.h"
 
 using namespace std;
 
@@ -15,24 +16,67 @@ void printArray(Array a)
 	a.print();
 }
 
+void printStudent(Student a)
+{
+	a.print();
+}
+
+
+void f(String s)
+{
+
+}
+
+
 
 int main()
 {
 	srand(time(0));
 
 
+	// 17.09.2025
+
+	String s1;
+	String s2(20);
+	String s3("mama");
+	String s4(s3);
+
+	s1.print();
+	s2.print();
+	s3.print();
+
+	cout << s1.length() << endl;
+	cout << s2.length() << endl;
+	cout << s3.length() << endl;
+
+
+	s3.set();
+	s3.set("papa");
+
+
+	f(20);
+	f("mama");
+
 	// 10.09.2025
 
 
-	Array a(5);
-	a.randomFill(1, 10);
-	a.print();
+	//const Array a(5);
+	//a.randomFill(1, 10);
+	//a.print();
+	////a.add(99);
+	//
+
+	////Student st("Vasya", 15, 99);
+	////st.print();
+
+	//printArray(a);
+	//a.print();
+
 
 	//Student st("Vasya", 15, 99);
+	//st.print(); // print(st);
+	//printStudent(st);
 	//st.print();
-
-	printArray(a);
-
 
 	//char* n;
 

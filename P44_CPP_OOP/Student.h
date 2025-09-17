@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "String.h"
 
 using namespace std;
 
@@ -10,6 +11,7 @@ class Student
 //private:
 	//int id;
 	char* name;
+
 	int age = 0;
 
 	const int t;
@@ -32,9 +34,18 @@ public:
 		
 		name = new char[strlen(n) + 1];
 		strcpy_s(name, strlen(n) + 1, n);
-		age = a;
+		setAge(a);
 		count++;
 		cout << "Constructor " << name << endl;
+	}
+
+	Student(const Student& obj) : t(obj.t)
+	{
+		name = new char[strlen(obj.name) + 1];
+		strcpy_s(name, strlen(obj.name) + 1, obj.name);
+		age = obj.age;
+		count++;
+		cout << "Copy Constructor " << name << endl;
 	}
 
 	~Student()
@@ -45,8 +56,9 @@ public:
 		count--;
 	}
 
-	void print()
+	void print() const
 	{
+		
 		cout << "Name : " << name << endl;
 		cout << "Age  : " << age << endl;
 		cout << "T    : " << t << endl;
@@ -58,7 +70,7 @@ public:
 			age = a;
 	}
 
-	int getAge()
+	int getAge() const
 	{
 		return age;
 	}
@@ -71,7 +83,7 @@ public:
 		strcpy_s(name, strlen(n) + 1, n);
 	}
 
-	char* getName()
+	char* getName() const
 	{
 		return name;
 	}
@@ -81,20 +93,7 @@ public:
 		return count;
 	}
 
-	void f();
-
-	void f1();
-
 };
 
 int Student::count{0};
 
-void Student::f()
-{
-	cout << "f()" << endl;
-}
-
-void Student::f1()
-{
-	cout << "f1()" << endl;
-}
