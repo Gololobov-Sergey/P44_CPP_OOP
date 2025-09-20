@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+
+using namespace std;
 
 class String
 {
@@ -8,9 +11,12 @@ class String
 public:
 	String(int size = 80);
 	String(const char* str);
+
 	String(const String& obj);
+
 	~String();
 	void set();
+	void set(const String& obj);
 	void set(const char* str);
 	void print() const;
 	size_t length() const;
@@ -51,6 +57,11 @@ void String::set()
 	char buffer[1000];
 	cin.getline(buffer, 1000);
 	set(buffer);
+}
+
+void String::set(const String& obj)
+{
+	set(obj.str);
 }
 
 void String::set(const char* str)

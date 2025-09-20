@@ -1,8 +1,10 @@
 #include <iostream>
 
+#include "functions.h"
 #include "Student.h"
 #include "Array.h"
 #include"String.h"
+#include "Reservoir.h"
 
 using namespace std;
 
@@ -11,7 +13,8 @@ inline void func()
 	cout << "**********************" << endl;
 }
 
-void printArray(Array a)
+template<typename T>
+void printArray(Array<T> a)
 {
 	a.print();
 }
@@ -31,12 +34,38 @@ void f(String s)
 
 int main()
 {
+	SetColor(Color::White, Color::Blue);
+	system("cls");
 	srand(time(0));
+
+
+	/*ReservoirType rt = ReservoirType::OCEAN;
+	ReservoirType rt1 = ReservoirType::POND;
+	Color c = Color::RED;
+	if (rt == rt1)
+	{
+		cout << "Yes" << endl;
+	}
+	else
+	{
+		cout << "No" << endl;
+	}*/
+
+
+	String n;
+	cout << sizeof(String) << endl;
+	cout << sizeof(char*) << endl;
+	cout << sizeof(size_t) << endl;
+
+	Array<int> a(5);
+	Array<double> a1(5);
+	Array<String> a2(5);
+	Array<Student> a3(5);
 
 
 	// 17.09.2025
 
-	String s1;
+	/*String s1;
 	String s2(20);
 	String s3("mama");
 	String s4(s3);
@@ -55,7 +84,7 @@ int main()
 
 
 	f(20);
-	f("mama");
+	f("mama");*/
 
 	// 10.09.2025
 

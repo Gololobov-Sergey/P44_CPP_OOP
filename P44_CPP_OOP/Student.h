@@ -21,17 +21,10 @@ class Student
 public:
 	
 
-	Student() : t(5), age{ 0 }
-	{
-		cout << "Constructor" << endl;
-		name = new char[8];
-		strcpy_s(name, 8, "No name");
-		count++;
-	}
+	Student() : Student("No name", 0, 5) {};
 
 	Student(const char* n, int a, int t) : t(t)
 	{
-		
 		name = new char[strlen(n) + 1];
 		strcpy_s(name, strlen(n) + 1, n);
 		setAge(a);

@@ -1,9 +1,9 @@
 #pragma once
 
-
+template <class T>
 class Array
 {
-	int* arr = nullptr;
+	T* arr = nullptr;
 	size_t size = 0;
 
 public:
@@ -14,7 +14,7 @@ public:
 
 	~Array();
 
-	void fill(int number) const;
+	void fill(T number) const;
 
 	void randomFill(int min, int max) const;
 
@@ -28,23 +28,24 @@ public:
 
 	int maxValue() const;
 
-	void add(int value);
+	void add(T value);
 
-	void set(int index, int value) const;
+	void set(int index, T value) const;
 };
 
-
-Array::Array(size_t size)
+template <class T>
+Array<T>::Array(size_t size)
 {
 	this->size = size;
-	this->arr = new int[size];
+	this->arr = new T[size];
 	cout << "Constructor Array" << endl;
 }
 
-Array::Array(const Array& obj)
+template <class T>
+Array<T>::Array(const Array& obj)
 {
 	size = obj.size;
-	arr = new int[size];
+	arr = new T[size];
 	for (size_t i = 0; i < size; i++)
 	{
 		arr[i] = obj.arr[i];
@@ -52,13 +53,15 @@ Array::Array(const Array& obj)
 	cout << "Copy Constructor Array" << endl;
 }
 
-Array::~Array()
+template <class T>
+Array<T>::~Array()
 {
 	delete arr;
 	cout << "Destructor Array" << endl;
 }
 
-void Array::fill(int number) const
+template <class T>
+void Array<T>::fill(T number) const
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -66,7 +69,8 @@ void Array::fill(int number) const
 	}
 }
 
-void Array::randomFill(int min, int max) const
+template <class T>
+void Array<T>::randomFill(int min, int max) const
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -74,7 +78,8 @@ void Array::randomFill(int min, int max) const
 	}
 }
 
-void Array::print() const
+template <class T>
+void Array<T>::print() const
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -83,14 +88,15 @@ void Array::print() const
 	cout << endl;
 }
 
-void Array::resize(int newSize)
+template <class T>
+void Array<T>::resize(int newSize)
 {
 	if (newSize == size)
 	{
 		return;
 	}
 
-	int* temp = new int[newSize] {0};
+	int* temp = new T[newSize] {0};
 
 	int s = (newSize > size) ? size : newSize;
 
@@ -103,7 +109,8 @@ void Array::resize(int newSize)
 	arr = temp;
 }
 
-void Array::sort() const
+template <class T>
+void Array<T>::sort() const
 {
 	for (size_t i = 0; i < size - 1; i++)
 	{
@@ -117,9 +124,10 @@ void Array::sort() const
 	}
 }
 
-int Array::minValue() const
+template <class T>
+int Array<T>::minValue() const
 {
-	int min = arr[0];
+	T min = arr[0];
 	for (size_t i = 0; i < size; i++)
 	{
 		if (arr[i] < min)
@@ -128,9 +136,10 @@ int Array::minValue() const
 	return min;
 }
 
-inline int Array::maxValue() const
+template <class T>
+inline int Array<T>::maxValue() const
 {
-	int max = arr[0];
+	T max = arr[0];
 	for (size_t i = 0; i < size; i++)
 	{
 		if (arr[i] > max)
@@ -139,9 +148,10 @@ inline int Array::maxValue() const
 	return max;
 }
 
-void Array::add(int value)
+template <class T>
+void Array<T>::add(T value)
 {
-	int* arr2 = new int[size + 1];
+	T* arr2 = new T[size + 1];
 	for (size_t i = 0; i < size; i++)
 	{
 		arr2[i] = arr[i];
@@ -152,7 +162,8 @@ void Array::add(int value)
 	arr = arr2;
 }
 
-void Array::set(int index, int value) const
+template <class T>
+void Array<T>::set(int index, T value) const
 {
 	if (index >= 0 && index < size)
 	{
