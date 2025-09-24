@@ -5,6 +5,7 @@
 #include "Array.h"
 #include"String.h"
 #include "Reservoir.h"
+#include "Fraction.h"
 
 using namespace std;
 
@@ -39,6 +40,44 @@ int main()
 	srand(time(0));
 
 
+	// 24.09.2025
+
+	// :: ?: * -> sizeof
+
+
+	// Operator overloading
+	// ++ -- - +
+	// + - * / % = += -= *= /= %=
+
+
+
+	Fraction f1(3, 4);	
+	Fraction f2(2, 5);
+	//Fraction f3 = f1.add(f2);
+	//Fraction f3 = -f1; // f1.operator-();
+	//f3.print();
+	(++f1).print();
+	(f1++).print();
+	f1.print();
+	Fraction f3 = f1 + f2;
+	f3.print();
+
+	f2 += f1 += f1; // f2 = f2 + f1; // f2.operator+=(f1);
+
+	Fraction f4 = f1 + 10;
+	Fraction f5 = 10 + f1; // Error // 10.operator+(f1);
+	
+
+
+
+	/*Array<int> a1(5);
+	a1.randomFill(1, 10);
+
+	Array<double> a2(5);
+	a2.randomFill(1, 10);*/
+
+
+
 	/*ReservoirType rt = ReservoirType::OCEAN;
 	ReservoirType rt1 = ReservoirType::POND;
 	Color c = Color::RED;
@@ -52,7 +91,7 @@ int main()
 	}*/
 
 
-	String n;
+	/*String n;
 	cout << sizeof(String) << endl;
 	cout << sizeof(char*) << endl;
 	cout << sizeof(size_t) << endl;
@@ -60,7 +99,7 @@ int main()
 	Array<int> a(5);
 	Array<double> a1(5);
 	Array<String> a2(5);
-	Array<Student> a3(5);
+	Array<Student> a3(5);*/
 
 
 	// 17.09.2025

@@ -16,7 +16,7 @@ public:
 
 	void fill(T number) const;
 
-	void randomFill(int min, int max) const;
+	void randomFill(T min, T max) const;
 
 	void print() const;
 
@@ -70,7 +70,16 @@ void Array<T>::fill(T number) const
 }
 
 template <class T>
-void Array<T>::randomFill(int min, int max) const
+void Array<T>::randomFill(T min, T max) const
+{
+	/*for (size_t i = 0; i < size; i++)
+	{
+		arr[i] = rand() % (max - min + 1) + min;
+	}*/
+}
+
+template <>
+void Array<int>::randomFill(int min, int max) const
 {
 	for (size_t i = 0; i < size; i++)
 	{
