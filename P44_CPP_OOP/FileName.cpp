@@ -48,6 +48,8 @@ int main()
 	// Operator overloading
 	// ++ -- - +
 	// + - * / % = += -= *= /= %=
+	// !
+	// == != > < >= <=
 
 
 
@@ -56,18 +58,26 @@ int main()
 	//Fraction f3 = f1.add(f2);
 	//Fraction f3 = -f1; // f1.operator-();
 	//f3.print();
-	(++f1).print();
-	(f1++).print();
-	f1.print();
-	Fraction f3 = f1 + f2;
-	f3.print();
+	//(++f1).print();
+	//(f1++).print();
+	//f1.print();
+	//Fraction f3 = f1 + f2;
+	//f3.print();
 
-	f2 += f1 += f1; // f2 = f2 + f1; // f2.operator+=(f1);
+	//f2 += f1 += f1; // f2 = f2 + f1; // f2.operator+=(f1);
 
-	Fraction f4 = f1 + 10;
-	Fraction f5 = 10 + f1; // Error // 10.operator+(f1);
+	//Fraction f4 = f1 + 10;
+	//Fraction f5 = 10 + f1; // Error // 10.operator+(f1);
 	
+	if (f1 > f2)
+	{
+		cout << "Yes" << endl;
+	}
+	else
+	{
+		cout << "No" << endl;
 
+	}
 
 
 	/*Array<int> a1(5);

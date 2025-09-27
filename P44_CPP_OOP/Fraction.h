@@ -80,6 +80,22 @@ public:
 	{
 		return *this + Fraction(obj, 1);
 	}
+
+	bool operator>(const Fraction& f) const
+	{
+		return (float)numerator / denominator > (float)f.numerator / f.denominator;
+	}
+
+	bool operator<(const Fraction& f) const
+	{
+		return (float)numerator / denominator < (float)f.numerator / f.denominator;
+	}
+
+	bool operator==(const Fraction& f) const
+	{
+		return (float)numerator / denominator == (float)f.numerator / f.denominator;
+	}
+
 };
 
 
