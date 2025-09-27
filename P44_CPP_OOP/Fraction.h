@@ -17,10 +17,6 @@ public:
 	void setDenominator(int denominator);
 	int getDenominator() const;
 
-	Fraction add(const Fraction& obj) const;
-	Fraction sub(const Fraction& obj) const;
-	Fraction mul(const Fraction& obj) const;
-	Fraction div(const Fraction& obj) const;
 
 	Fraction operator-()
 	{
@@ -81,7 +77,7 @@ public:
 		return *this + Fraction(obj, 1);
 	}
 
-	bool operator>(const Fraction& f) const
+	/*bool operator>(const Fraction& f) const
 	{
 		return (float)numerator / denominator > (float)f.numerator / f.denominator;
 	}
@@ -89,12 +85,34 @@ public:
 	bool operator<(const Fraction& f) const
 	{
 		return (float)numerator / denominator < (float)f.numerator / f.denominator;
-	}
+	}*/
 
-	bool operator==(const Fraction& f) const
+	/*bool operator==(const Fraction& f) const
 	{
 		return (float)numerator / denominator == (float)f.numerator / f.denominator;
+	}*/
+
+	auto operator<=>(const Fraction& f) const
+	{
+		return (float)numerator / denominator <=> (float)f.numerator / f.denominator;
 	}
+
+	bool operator!() const
+	{
+		return numerator == 0;
+	}
+
+	bool operator&&(const Fraction& f) const
+	{
+		return numerator != 0 && f.numerator != 0;
+	}
+
+	operator float() const
+	{
+		return (float)numerator / denominator;
+	}
+
+	void operator()(int n, int d);
 
 };
 
@@ -105,7 +123,7 @@ Fraction operator+(int value, const Fraction& f)
 }
 
 
-inline Fraction::Fraction(int numerator, int denominator)
+Fraction::Fraction(int numerator, int denominator)
 {
 	this->numerator = numerator;
 	if (denominator == 0)

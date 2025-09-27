@@ -51,10 +51,16 @@ int main()
 	// !
 	// == != > < >= <=
 
+	// && ||
+
+	// []
+
+	// ()
 
 
 	Fraction f1(3, 4);	
-	Fraction f2(2, 5);
+	f1(5, 6);
+	//Fraction f2(2, 5);
 	//Fraction f3 = f1.add(f2);
 	//Fraction f3 = -f1; // f1.operator-();
 	//f3.print();
@@ -69,7 +75,7 @@ int main()
 	//Fraction f4 = f1 + 10;
 	//Fraction f5 = 10 + f1; // Error // 10.operator+(f1);
 	
-	if (f1 > f2)
+	/*if (f1 > f2)
 	{
 		cout << "Yes" << endl;
 	}
@@ -77,13 +83,30 @@ int main()
 	{
 		cout << "No" << endl;
 
-	}
+	}*/
 
 
-	/*Array<int> a1(5);
+	float ff = f1;
+
+
+	Array<int> a1(5);
 	a1.randomFill(1, 10);
+	Array<int> a2(5);
+	a1 = a1;
+	a1.print();
 
-	Array<double> a2(5);
+	a1[1] = 99;
+
+	cout << a1[1] << endl;
+
+	a1(10);
+
+	String s("mama");
+	cout << s << endl;
+	cin >> s;
+	cout << s << endl;
+
+	/*Array<double> a2(5);
 	a2.randomFill(1, 10);*/
 
 

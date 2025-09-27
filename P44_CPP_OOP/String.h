@@ -14,12 +14,28 @@ public:
 
 	String(const String& obj);
 
+	String& operator=(const String& obj);
+
 	~String();
-	void set();
-	void set(const String& obj);
-	void set(const char* str);
-	void print() const;
+
 	size_t length() const;
+
+	friend ostream& operator<<(ostream& os, const String& obj);
+	friend istream& operator>>(istream& is, String& obj);
+
+	String operator+(const String& s) const;
+	void operator+=(const String& s);
+
+	char operator[](int index);
+
+	bool operator==(const String& s);
+	bool operator!=(const String& s);
+	bool operator>(const String& s);
+	bool operator<(const String& s);
+	bool operator>=(const String& s);
+	bool operator<=(const String& s);
+
+
 };
 
 
@@ -52,41 +68,26 @@ String::~String()
 		delete[] str;
 }
 
-void String::set()
-{
-	char buffer[1000];
-	cin.getline(buffer, 1000);
-	set(buffer);
-}
-
-void String::set(const String& obj)
-{
-	set(obj.str);
-}
-
-void String::set(const char* str)
-{
-	if (str == nullptr)
-	{
-		if (this->str != nullptr)
-			this->str[0] = '\0';
-		size = 0;
-		return;
-	}
-	size = strlen(str);
-	if (this->str != nullptr)
-		delete[] this->str;
-	this->str = new char[size + 1];
-	strcpy_s(this->str, size + 1, str);
-}
-
-void String::print() const
-{
-	if (str != nullptr)
-		cout << str << endl;
-}
-
 size_t String::length() const
 {
 	return size;
+}
+
+ostream& operator<<(ostream& os, const String& obj)
+{
+	os << obj.str;
+	return os;
+}
+
+istream& operator>>(istream& is, String& obj)
+{
+	char buffer[1000];
+	is.getline(buffer, 1000);
+
+	obj.size = strlen(buffer);
+	if (obj.str != nullptr)
+		delete[] obj.str;
+	obj.str = new char[obj.size + 1];
+	strcpy_s(obj.str, obj.size + 1, buffer);
+	return is;
 }

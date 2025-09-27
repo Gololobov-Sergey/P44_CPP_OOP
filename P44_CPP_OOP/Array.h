@@ -14,6 +14,8 @@ public:
 
 	~Array();
 
+	Array& operator=(const Array& obj);
+
 	void fill(T number) const;
 
 	void randomFill(T min, T max) const;
@@ -31,6 +33,11 @@ public:
 	void add(T value);
 
 	void set(int index, T value) const;
+
+	T& operator[](int index) const;
+
+
+
 };
 
 template <class T>
@@ -59,6 +66,25 @@ Array<T>::~Array()
 	delete arr;
 	cout << "Destructor Array" << endl;
 }
+
+template<class T>
+Array<T>& Array<T>::operator=(const Array<T>& obj)
+{
+	if (this == &obj)
+		return *this;
+
+	delete arr;
+
+	size = obj.size;
+	arr = new T[size];
+	for (size_t i = 0; i < size; i++)
+	{
+		arr[i] = obj.arr[i];
+	}
+
+	return *this;
+}
+
 
 template <class T>
 void Array<T>::fill(T number) const
@@ -105,7 +131,7 @@ void Array<T>::resize(int newSize)
 		return;
 	}
 
-	int* temp = new T[newSize] {0};
+	int* temp = new T[newSize]{ 0 };
 
 	int s = (newSize > size) ? size : newSize;
 
@@ -125,9 +151,9 @@ void Array<T>::sort() const
 	{
 		for (size_t j = 0; j < size - i - 1; j++)
 		{
-			if (arr[j] > arr[j+1])
+			if (arr[j] > arr[j + 1])
 			{
-				swap(arr[j], arr[j+1]);
+				swap(arr[j], arr[j + 1]);
 			}
 		}
 	}
@@ -178,4 +204,10 @@ void Array<T>::set(int index, T value) const
 	{
 		arr[index] = value;
 	}
+}
+
+template<class T>
+T& Array<T>::operator[](int index) const
+{
+	return arr[index];
 }
