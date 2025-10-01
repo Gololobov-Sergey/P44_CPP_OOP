@@ -35,6 +35,9 @@ public:
 	bool operator>=(const String& s);
 	bool operator<=(const String& s);
 
+	int compareTo(const String& s); // 1 0 -1
+
+	const char* getStr();
 
 };
 
@@ -90,4 +93,23 @@ istream& operator>>(istream& is, String& obj)
 	obj.str = new char[obj.size + 1];
 	strcpy_s(obj.str, obj.size + 1, buffer);
 	return is;
+}
+
+
+bool String::operator==(const String& s)
+{
+	for (size_t i = 0; i < size + 1; i++)
+	{
+		if (str[i] != s.str[i])
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+const char* String::getStr()
+{
+	return str;
 }

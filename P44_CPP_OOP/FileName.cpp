@@ -6,6 +6,8 @@
 #include"String.h"
 #include "Reservoir.h"
 #include "Fraction.h"
+#include<set>
+#include "Stack.h"
 
 using namespace std;
 
@@ -32,13 +34,42 @@ void f(String s)
 }
 
 
-
 int main()
 {
 	SetColor(Color::White, Color::Blue);
 	system("cls");
 	srand(time(0));
 
+
+	// 01.01.2025
+
+	Stack<int, 10> s;
+	//s.push(10);
+	int* a = s.peek();
+	if(a)
+		cout << *a << endl;
+
+	/*s.push(10);
+	s.push(20);
+	s.push(30);
+	s.push(40)*/;
+	s.print();
+
+	//Stack<int, 10> s2 = s;
+
+	//s2 = s;
+
+	//s2.print();
+
+	/*String s1("mama");
+	String s2("mama");
+	cout << (s1 == s2) << endl;
+
+	cout << (void*)s1.getStr() << endl;
+	cout << (void*)s2.getStr() << endl;*/
+
+
+	// >0 0 <0
 
 	// 24.09.2025
 
@@ -58,9 +89,8 @@ int main()
 	// ()
 
 
-	Fraction f1(3, 4);	
-	f1(5, 6);
-	//Fraction f2(2, 5);
+	/*Fraction f1(3, 4);	
+	Fraction f2(5, 40);*/
 	//Fraction f3 = f1.add(f2);
 	//Fraction f3 = -f1; // f1.operator-();
 	//f3.print();
@@ -75,7 +105,7 @@ int main()
 	//Fraction f4 = f1 + 10;
 	//Fraction f5 = 10 + f1; // Error // 10.operator+(f1);
 	
-	/*if (f1 > f2)
+	/*if (f1 == f2)
 	{
 		cout << "Yes" << endl;
 	}
@@ -86,25 +116,26 @@ int main()
 	}*/
 
 
-	float ff = f1;
+	//float ff = f1;
 
 
-	Array<int> a1(5);
-	a1.randomFill(1, 10);
-	Array<int> a2(5);
-	a1 = a1;
-	a1.print();
+	//Array<int> a1(5);
+	//a1.randomFill(1, 10);
+	//Array<int> a2 = a1;
+	////
+	//a2 = a1;
+	//a1.print();
 
-	a1[1] = 99;
+	//a1[1] = 99;
 
-	cout << a1[1] << endl;
+	//cout << a1[1] << endl;
 
-	a1(10);
+	//
 
-	String s("mama");
-	cout << s << endl;
-	cin >> s;
-	cout << s << endl;
+	//String s("mama");
+	//cout << s << endl;
+	//cin >> s;
+	//cout << s << endl;
 
 	/*Array<double> a2(5);
 	a2.randomFill(1, 10);*/

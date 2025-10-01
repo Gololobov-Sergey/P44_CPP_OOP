@@ -46,5 +46,5 @@ public:
 inline Reservoir::Reservoir(ReservoirType type, String name)
 {
 	this->type = type;
-	this->name.set(name);
+	cin >> name;
 }

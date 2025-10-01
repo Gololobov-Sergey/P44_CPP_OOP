@@ -7,7 +7,7 @@ class Fraction
 	int denominator = 1;
 
 public:
-	Fraction() = default;
+	Fraction() : Fraction(1, 0) {}
 	Fraction(int numerator, int denominator);
 
 
@@ -107,12 +107,12 @@ public:
 		return numerator != 0 && f.numerator != 0;
 	}
 
-	operator float() const
+	/*operator float() const
 	{
 		return (float)numerator / denominator;
-	}
+	}*/
 
-	void operator()(int n, int d);
+	//void operator()(int n, int d);
 
 };
 
@@ -138,17 +138,17 @@ void Fraction::print() const
 	cout << numerator << "/" << denominator << endl;
 }
 
-inline void Fraction::setNumerator(int numerator)
+void Fraction::setNumerator(int numerator)
 {
 	this->numerator = numerator;
 }
 
-inline int Fraction::getNumerator() const
+int Fraction::getNumerator() const
 {
 	return numerator;
 }
 
-inline void Fraction::setDenominator(int denominator)
+void Fraction::setDenominator(int denominator)
 {
 	if (denominator == 0)
 	{
@@ -157,7 +157,7 @@ inline void Fraction::setDenominator(int denominator)
 	this->denominator = denominator;
 }
 
-inline int Fraction::getDenominator() const
+int Fraction::getDenominator() const
 {
 	return denominator;
 }
