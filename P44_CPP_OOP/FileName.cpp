@@ -8,6 +8,8 @@
 #include "Fraction.h"
 #include<set>
 #include "Stack.h"
+#include "Queue.h"
+#include "PriorityQueue.h"
 
 using namespace std;
 
@@ -41,19 +43,59 @@ int main()
 	srand(time(0));
 
 
+	// 04.01.2025
+
+
+	int i = 0;
+	while (true)
+	{
+		cout << ++i << endl;
+		if (i % 4 == 0)
+			cout << "add passenger" << endl;
+		Sleep(1000);
+	}
+
+
+
+
+	/*PriorityQueue<int> pq;
+	pq.enqueue(10, 4);
+	pq.enqueue(40, 1);
+	pq.enqueue(30, 3);
+	pq.enqueue(20, 3);
+	pq.enqueue(10, 1);
+
+	pq.print();*/
+
+
+	/*Queue<int> q = { 1 };
+	q.print();
+	q.loop();
+	q.print();*/
+	/*q.enqueue(10);
+	q.print();
+	q.dequeue();
+	q.print();
+	q.clear();
+	q.print();*/
+
+	/*Queue<int> q2(q);
+	q2.print();*/
+
+
 	// 01.01.2025
 
-	Stack<int, 10> s;
-	//s.push(10);
-	int* a = s.peek();
-	if(a)
-		cout << *a << endl;
+	//Stack<int, 10> s;
+	////s.push(10);
+	//int* a = s.peek();
+	//if(a)
+	//	cout << *a << endl;
 
 	/*s.push(10);
 	s.push(20);
 	s.push(30);
 	s.push(40)*/;
-	s.print();
+	//s.print();
 
 	//Stack<int, 10> s2 = s;
 
