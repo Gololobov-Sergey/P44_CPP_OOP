@@ -10,6 +10,7 @@
 #include "Stack.h"
 #include "Queue.h"
 #include "PriorityQueue.h"
+#include "ForwardList.h"
 
 using namespace std;
 
@@ -43,17 +44,24 @@ int main()
 	srand(time(0));
 
 
-	// 04.01.2025
+	// 08.10.2025
+
+	ForwardList<int> list = { 1,2,34,5,6,7 };
+	list.print();
 
 
-	int i = 0;
+
+	// 04.10.2025
+
+
+	/*int i = 0;
 	while (true)
 	{
 		cout << ++i << endl;
 		if (i % 4 == 0)
 			cout << "add passenger" << endl;
 		Sleep(1000);
-	}
+	}*/
 
 
 
@@ -83,7 +91,7 @@ int main()
 	q2.print();*/
 
 
-	// 01.01.2025
+	// 01.10.2025
 
 	//Stack<int, 10> s;
 	////s.push(10);
