@@ -2,10 +2,11 @@
 #include <iostream>
 #include <initializer_list>
 
+#include "functions.h"
+#include "Node.h"
+
 using namespace std;
 
-
-#include "Node.h"
 
 
 template<class T>
@@ -34,6 +35,7 @@ public:
 
 	void clear();
 	void print();
+	void print(int x, int y, int count = -1);
 	size_t length() const;
 
 	T& operator[](int index);
@@ -211,6 +213,24 @@ void ForwardList<T>::print()
 	while (temp)
 	{
 		cout << temp->value << " ";
+		temp = temp->next;
+	}
+	cout << endl;
+}
+
+template<class T>
+void ForwardList<T>::print(int x, int y, int count)
+{
+	Node<T>* temp = first;
+	if (count != -1)
+	{
+		if(size > count)
+			temp = getNode(size - count);
+	}
+	while (temp)
+	{
+		gotoxy(x, y++);
+		cout << temp->value;
 		temp = temp->next;
 	}
 	cout << endl;

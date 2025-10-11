@@ -133,10 +133,12 @@
   <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="Date.h" />
+    <ClInclude Include="DateTime.h" />
     <ClInclude Include="ForwardList.h" />
     <ClInclude Include="Fraction.h" />
     <ClInclude Include="functions.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="PrintServer.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Reservoir.h" />

@@ -3,14 +3,15 @@
 #include "functions.h"
 #include "Student.h"
 #include "Array.h"
-#include"String.h"
+#include "String.h"
 #include "Reservoir.h"
 #include "Fraction.h"
-#include<set>
+#include <set>
 #include "Stack.h"
 #include "Queue.h"
 #include "PriorityQueue.h"
 #include "ForwardList.h"
+#include "PrintServer.h"
 
 using namespace std;
 
@@ -44,10 +45,32 @@ int main()
 	srand(time(0));
 
 
+
+	// 11.10.2025
+
+
+	string fName[] = { "file1.doc", "file2.xls", "file3.txt", "file4.pdf", "file5.ppt" };
+
+	PrintServer ps("10.6.6.58");
+
+	int i = 0;
+	while (true)
+	{
+		if (i % 5 == 0)
+		{
+			ps.addTask(TaskPrint(fName[rand() % 5], rand() % 3 + 5, (DEPARTMENT)(rand() % 4)));
+		}
+		ps.work();
+		i++;
+		Sleep(100);
+	}
+
+
+
 	// 08.10.2025
 
-	ForwardList<int> list = { 1,2,34,5,6,7 };
-	list.print();
+	/*ForwardList<int> list = { 1,2,34,5,6,7 };
+	list.print();*/
 
 
 
