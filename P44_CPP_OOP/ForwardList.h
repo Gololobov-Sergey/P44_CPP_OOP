@@ -4,6 +4,7 @@
 
 #include "functions.h"
 #include "Node.h"
+#include "List.h"
 
 using namespace std;
 
@@ -56,6 +57,8 @@ Node<T>* ForwardList<T>::getNode(int index)
 	}
 	return pos;
 }
+
+
 
 template<class T>
 ForwardList<T>::ForwardList()
@@ -263,3 +266,5 @@ int ForwardList<T>::find(const T& value)
 	}
 	return -1;
 }
+
+

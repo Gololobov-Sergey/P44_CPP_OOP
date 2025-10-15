@@ -12,6 +12,7 @@
 #include "PriorityQueue.h"
 #include "ForwardList.h"
 #include "PrintServer.h"
+#include "List.h"
 
 using namespace std;
 
@@ -37,6 +38,10 @@ void f(String s)
 
 }
 
+void mult2(int& a)
+{
+	a *= 2;
+}
 
 int main()
 {
@@ -46,10 +51,24 @@ int main()
 
 
 
+	// 15.10.2025
+
+	List<int> l = { 1,2,3,4,5 };
+	l.print();
+	l.insert(99, 4);
+	l.print();
+	l.pop_front();
+	l.print();
+	l.remove(3);
+	l.print();
+	l.for_each(mult2);
+	l.print();
+
+
 	// 11.10.2025
 
 
-	string fName[] = { "file1.doc", "file2.xls", "file3.txt", "file4.pdf", "file5.ppt" };
+	/*string fName[] = { "file1.doc", "file2.xls", "file3.txt", "file4.pdf", "file5.ppt" };
 
 	PrintServer ps("10.6.6.58");
 
@@ -63,7 +82,7 @@ int main()
 		ps.work();
 		i++;
 		Sleep(100);
-	}
+	}*/
 
 
 
