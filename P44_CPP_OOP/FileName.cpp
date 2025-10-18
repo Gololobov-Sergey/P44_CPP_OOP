@@ -13,6 +13,7 @@
 #include "ForwardList.h"
 #include "PrintServer.h"
 #include "List.h"
+#include "BTree.h"
 
 using namespace std;
 
@@ -50,10 +51,26 @@ int main()
 	srand(time(0));
 
 
+	// 18.10.2025
+
+	BTree<int, int> b;
+	b.push_r(20, 20);
+	b.push_r(2, 2);
+	b.push_r(22, 22);
+	b.push_r(15, 15);
+	b.push_r(10, 10);
+	cout << b.push_r(8, 8) << endl;
+	cout << b.push_r(8, 8) << endl;
+	b.print();
+
+	cout << *b.getValue(10) << endl;
+
+	//BTree<string, List<Protocol>> base;
+
 
 	// 15.10.2025
 
-	List<int> l = { 1,2,3,4,5 };
+	/*List<int> l = { 1,2,3,4,5 };
 	l.print();
 	l.insert(99, 4);
 	l.print();
@@ -62,7 +79,7 @@ int main()
 	l.remove(3);
 	l.print();
 	l.for_each(mult2);
-	l.print();
+	l.print();*/
 
 
 	// 11.10.2025
