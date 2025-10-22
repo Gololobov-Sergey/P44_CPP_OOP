@@ -14,6 +14,8 @@
 #include "PrintServer.h"
 #include "List.h"
 #include "BTree.h"
+#include "Relation.h"
+#include "Inherit.h"
 
 using namespace std;
 
@@ -51,9 +53,45 @@ int main()
 	srand(time(0));
 
 
+
+	// 22.10.2025
+
+	//Human h("Vasya", 20);
+	//h.print();
+	//
+
+	//cout << endl;
+	//Worker w("Petya", 30, 5);
+	///*w.name = "Petya";
+	//w.age = 30;*/
+	////w.workTime = 5;
+	//w.print();
+	
+	
+	Director d;
+
+	int val = 22;
+	printf("%s = %d%%", "Value", val);
+
+	
+
+	/*A a;
+	B b;*/
+
+
+
+	/*Engine* en = new Engine;
+	{
+		Car c(en);
+		c.move();
+	}
+	STO sto;
+	sto.setEngine(en);
+	sto.upgrade();*/
+
 	// 18.10.2025
 
-	BTree<int, int> b;
+	/*BTree<int, int> b;
 	b.push_r(20, 20);
 	b.push_r(2, 2);
 	b.push_r(22, 22);
@@ -63,7 +101,7 @@ int main()
 	cout << b.push_r(8, 8) << endl;
 	b.print();
 
-	cout << *b.getValue(10) << endl;
+	cout << *b.getValue(10) << endl;*/
 
 	//BTree<string, List<Protocol>> base;
 
@@ -161,7 +199,7 @@ int main()
 	/*s.push(10);
 	s.push(20);
 	s.push(30);
-	s.push(40)*/;
+	s.push(40);*/
 	//s.print();
 
 	//Stack<int, 10> s2 = s;
