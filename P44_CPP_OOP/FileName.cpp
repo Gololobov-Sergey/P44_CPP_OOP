@@ -16,6 +16,7 @@
 #include "BTree.h"
 #include "Relation.h"
 #include "Inherit.h"
+#include "Animal.h"
 
 using namespace std;
 
@@ -53,6 +54,51 @@ int main()
 	srand(time(0));
 
 
+	// 25.10.2025
+
+
+	/*Animal a("No name", 0);
+	cout <<a.getType() << endl;
+	a.print();
+	cout << a.getVoice() << endl;*/
+
+	Cat cat("Tom", 3);
+	
+	/*cout << cat.getType() << endl;
+	cat.print();
+	cout << endl;*/
+
+
+	Animal& r_cat = cat;
+	/*cout << r_cat.getType() << endl;
+	r_cat.print();*/
+	//cout << endl;
+
+
+	Animal* p_cat = &cat;
+	//cout << p_cat->getType() << endl;
+	//p_cat->print();
+	//cout << endl;
+
+	Animal* p_dog = new Dog("Spike", 5);
+	//cout << p_dog->getType() << endl;
+	//p_dog->print();
+
+
+	Animal* zoo[] = { p_cat, p_dog, new SiamCat("Murzik", 4), new Ravlik("Roma", 1)};
+	for (size_t i = 0; i < 4; i++)
+	{
+		cout << zoo[i]->getType() << endl;
+		zoo[i]->print();
+		cout << zoo[i]->getVoice() << endl;
+		cout << endl;
+	}
+
+
+	/*Router r(123, 345, 456, 678);
+	cout << r.WiFi::Device::id << endl;
+	cout << r.LAN::Device::id << endl;*/
+
 
 	// 22.10.2025
 
@@ -68,10 +114,10 @@ int main()
 	//w.print();
 	
 	
-	Director d;
+	/*Director d;
 
 	int val = 22;
-	printf("%s = %d%%", "Value", val);
+	printf("%s = %d%%", "Value", val);*/
 
 	
 

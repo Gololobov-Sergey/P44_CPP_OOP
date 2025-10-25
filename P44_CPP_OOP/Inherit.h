@@ -89,3 +89,39 @@ class C : public B
 		a3 = 10;
 	}
 };
+
+class Device
+{
+public:
+	int id;
+
+	Device(int id) : id(id) {}
+};
+
+class LAN : virtual public Device
+{
+	int id;
+
+public:
+	LAN(int id, int id_d) : Device(id_d), id(id) {}
+	int getID() { return id; }
+};
+
+
+class WiFi : virtual public Device
+{
+	int id;
+
+public:
+	WiFi(int id, int id_d) : Device(id_d), id(id) {}
+	int getID() { return id; }
+};
+
+
+class Router : public WiFi, public LAN
+{
+	int id;
+
+public:
+	Router(int id, int id_w, int id_l, int id_d) : id(id), WiFi(id_w, id_d), LAN(id_l, id_d), Device(id_d) {}
+};
