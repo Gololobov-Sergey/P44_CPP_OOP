@@ -14,6 +14,8 @@ protected:
 public:
 	Animal(string n, int a) : name(n), age(a) {}
 
+	virtual ~Animal() { cout << "Destr Animal" << endl; }
+
 	virtual string getType() { return "Animal"; }
 
 	virtual string getVoice() = 0;
@@ -32,15 +34,20 @@ string Animal::getVoice()
 }
 
 
-class Cat : public Animal
+class Cat /*final*/: public Animal
 {
+	int* mouse;
 
 public:
-	Cat(string n, int a) : Animal(n, a) {}
+	Cat(string n, int a) : Animal(n, a) { mouse = new int{ 0 }; }
+
+	virtual ~Cat() { delete mouse; cout << "Destr Cat" << endl; }
+
+	void catch_mouse() { (*mouse)++; }
 
 	virtual string getType() override { return "Cat"; }
 
-	virtual string getVoice() override { return "Mau-Mau"; }
+	virtual string getVoice() override /*final*/ { return "Mau-Mau"; }
 };
 
 
@@ -76,4 +83,38 @@ public:
 	virtual string getType() override { return "Ravlik"; }
 
 	virtual string getVoice() override { return Animal::getVoice(); }
+};
+
+
+class IFly
+{
+public:
+	virtual void fly() = 0;
+};
+
+
+class Parrot : public Animal, public IFly
+{
+public:
+
+	Parrot(string n, int a) : Animal(n, a) {}
+
+	virtual string getType() override { return "Parrot"; }
+
+	virtual string getVoice() override { return "Kar-Kar"; }
+
+	virtual void fly() { cout << "Parrot fly" << endl; }
+};
+
+class Sparrow : public Animal, public IFly
+{
+public:
+
+	Sparrow(string n, int a) : Animal(n, a) {}
+
+	virtual string getType() override { return "Sparrow"; }
+
+	virtual string getVoice() override { return "Chik-Chirik"; }
+
+	virtual void fly() { cout << "Sparrow fly" << endl; }
 };

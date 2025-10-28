@@ -47,6 +47,28 @@ void mult2(int& a)
 	a *= 2;
 }
 
+
+double division(double a, double b, ILogError& log)
+{
+	if (b == 0)
+	{
+		log.saveError("Div by zero!");
+		return 0;
+	}
+
+	//
+	return a / b;
+}
+
+
+void print_flying(List<IFly*>& fly)
+{
+	for (size_t i = 0; i < fly.length(); i++)
+	{
+		fly[i]->fly();
+	}
+}
+
 int main()
 {
 	SetColor(Color::White, Color::Blue);
@@ -54,45 +76,68 @@ int main()
 	srand(time(0));
 
 
+	// 28.10.2025
+
+	FileLogError f_log("log.txt");
+
+	ConsoleLogError c_log;
+
+	cout << division(8, 0, c_log) << endl;
+
+	List<IFly*> fly = { new Sparrow("Gorobec", 1), new Parrot("Kesha", 2)};
+	print_flying(fly);
+
+
+
+	//{
+	//	Animal* cat = new Cat("Tom", 3);
+
+	//	cout << cat->Animal::getType() << endl;
+
+	//	//
+	//	delete cat;
+	//}
+
+
 	// 25.10.2025
 
 
-	/*Animal a("No name", 0);
-	cout <<a.getType() << endl;
-	a.print();
-	cout << a.getVoice() << endl;*/
+	///*Animal a("No name", 0);
+	//cout <<a.getType() << endl;
+	//a.print();
+	//cout << a.getVoice() << endl;*/
 
-	Cat cat("Tom", 3);
-	
-	/*cout << cat.getType() << endl;
-	cat.print();
-	cout << endl;*/
-
-
-	Animal& r_cat = cat;
-	/*cout << r_cat.getType() << endl;
-	r_cat.print();*/
-	//cout << endl;
+	//Cat cat("Tom", 3);
+	//
+	///*cout << cat.getType() << endl;
+	//cat.print();
+	//cout << endl;*/
 
 
-	Animal* p_cat = &cat;
-	//cout << p_cat->getType() << endl;
-	//p_cat->print();
-	//cout << endl;
-
-	Animal* p_dog = new Dog("Spike", 5);
-	//cout << p_dog->getType() << endl;
-	//p_dog->print();
+	//Animal& r_cat = cat;
+	///*cout << r_cat.getType() << endl;
+	//r_cat.print();*/
+	////cout << endl;
 
 
-	Animal* zoo[] = { p_cat, p_dog, new SiamCat("Murzik", 4), new Ravlik("Roma", 1)};
-	for (size_t i = 0; i < 4; i++)
-	{
-		cout << zoo[i]->getType() << endl;
-		zoo[i]->print();
-		cout << zoo[i]->getVoice() << endl;
-		cout << endl;
-	}
+	//Animal* p_cat = &cat;
+	////cout << p_cat->getType() << endl;
+	////p_cat->print();
+	////cout << endl;
+
+	//Animal* p_dog = new Dog("Spike", 5);
+	////cout << p_dog->getType() << endl;
+	////p_dog->print();
+
+
+	//List<Animal*> zoo = { p_cat, p_dog, new SiamCat("Murzik", 4), new Ravlik("Roma", 1)};
+	//for (size_t i = 0; i < 4; i++)
+	//{
+	//	cout << zoo[i]->getType() << endl;
+	//	zoo[i]->print();
+	//	cout << zoo[i]->getVoice() << endl;
+	//	cout << endl;
+	//}
 
 
 	/*Router r(123, 345, 456, 678);

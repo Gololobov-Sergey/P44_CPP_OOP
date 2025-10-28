@@ -55,6 +55,11 @@ public:
 
 };
 
+template<class T>
+size_t List<T>::length() const
+{
+	return size;
+}
 
 
 template<class T>
@@ -64,7 +69,7 @@ Node<T>* List<T>::getNode(int index)
 	if (index < size / 2)
 	{
 		pos = first;
-		for (size_t i = 0; i < index-1; i++)
+		for (int i = 0; i < index; i++)
 		{
 			pos = pos->next;
 		}
@@ -72,7 +77,7 @@ Node<T>* List<T>::getNode(int index)
 	else
 	{
 		pos = last;
-		for (size_t i = 0; i < size-index; i++)
+		for (int i = 0; i < size - 1 - index; i++)
 		{
 			pos = pos->prev;
 		}
@@ -268,4 +273,10 @@ void List<T>::for_each(void(*method)(T& value))
 		method(temp->value);
 		temp = temp->next;
 	}
+}
+
+template<class T>
+T& List<T>::operator[](int index)
+{
+	return getNode(index)->value;
 }

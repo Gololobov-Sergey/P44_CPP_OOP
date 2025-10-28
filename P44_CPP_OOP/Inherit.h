@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include<fstream>
 
 using namespace std;
 
@@ -124,4 +125,52 @@ class Router : public WiFi, public LAN
 
 public:
 	Router(int id, int id_w, int id_l, int id_d) : id(id), WiFi(id_w, id_d), LAN(id_l, id_d), Device(id_d) {}
+};
+
+
+
+
+class ILogError
+{
+public:
+	virtual void saveError(const string& error) = 0;
+	virtual void closefile() = 0;
+};
+
+
+class FileLogError : public ILogError
+{
+	string name;
+	ofstream out;
+
+public:
+	FileLogError(string name) : name(name), out(ofstream(name, ios::app)) {}
+
+	~FileLogError() { closefile(); }
+	
+	virtual void saveError(const string& error)
+	{
+		out << error << endl;
+	}
+	
+	virtual void closefile()
+	{
+		out.close();
+	}
+};
+
+
+class ConsoleLogError : public ILogError
+{
+public:
+
+	virtual void saveError(const string& error)
+	{
+		cout << error << endl;
+	}
+
+	virtual void closefile()
+	{
+		//out.close();
+	}
 };
