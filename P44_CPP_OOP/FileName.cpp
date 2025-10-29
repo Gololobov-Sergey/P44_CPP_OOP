@@ -80,7 +80,7 @@ int main()
 	// 29.10.2025
 
 	WorldWar w(5);
-	w.print();
+	w.game();
 
 
 	// 28.10.2025

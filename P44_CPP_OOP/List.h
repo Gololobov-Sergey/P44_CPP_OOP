@@ -15,7 +15,7 @@ class List
 	Node<T>* last  = nullptr;
 	size_t   size  = 0;
 
-	Node<T>* getNode(int index);
+	Node<T>* getNode(int index) const;
 
 public:
 	List();
@@ -36,7 +36,7 @@ public:
 	T& back();
 	T& at(int index);
 
-	T& operator[](int index);
+	T& operator[](int index) const;
 
 	void clear();
 	void print() const;
@@ -63,7 +63,7 @@ size_t List<T>::length() const
 
 
 template<class T>
-Node<T>* List<T>::getNode(int index)
+Node<T>* List<T>::getNode(int index) const
 {
 	Node<T>* pos;
 	if (index < size / 2)
@@ -209,8 +209,10 @@ void List<T>::pop_front()
 		Node<T>* temp = first->next;
 		delete first;
 		first = temp;
-		first->prev = nullptr;
 		size--;
+		if(first != nullptr)
+			first->prev = nullptr;
+		
 	}
 }
 
@@ -254,7 +256,7 @@ void List<T>::remove(int index)
 	}
 	else
 	{
-		Node<T>* pos = getNode(index);
+		Node<T>* pos = getNode(index - 1);
 		Node<T>* temp = pos->next;
 		pos->next = pos->next->next;
 		pos->next->prev = pos;
@@ -277,7 +279,7 @@ void List<T>::for_each(void(*method)(T& value))
 }
 
 template<class T>
-T& List<T>::operator[](int index)
+T& List<T>::operator[](int index) const
 {
 	return getNode(index)->value;
 }
