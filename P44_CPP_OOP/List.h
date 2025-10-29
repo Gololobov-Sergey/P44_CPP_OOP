@@ -193,7 +193,8 @@ void List<T>::print() const
 	Node<T>* temp = first;
 	while (temp)
 	{
-		cout << temp->value << " ";
+		//cout << temp->value << " ";
+		cout << temp->value;
 		temp = temp->next;
 	}
 	cout << endl;

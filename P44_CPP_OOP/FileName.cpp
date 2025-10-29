@@ -17,6 +17,7 @@
 #include "Relation.h"
 #include "Inherit.h"
 #include "Animal.h"
+#include "WorldWar.h"
 
 using namespace std;
 
@@ -76,16 +77,22 @@ int main()
 	srand(time(0));
 
 
+	// 29.10.2025
+
+	WorldWar w(5);
+	w.print();
+
+
 	// 28.10.2025
 
-	FileLogError f_log("log.txt");
+	/*FileLogError f_log("log.txt");
 
 	ConsoleLogError c_log;
 
 	cout << division(8, 0, c_log) << endl;
 
 	List<IFly*> fly = { new Sparrow("Gorobec", 1), new Parrot("Kesha", 2)};
-	print_flying(fly);
+	print_flying(fly);*/
 
 
 
