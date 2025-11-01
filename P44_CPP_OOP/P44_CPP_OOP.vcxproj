@@ -141,6 +141,7 @@
     <ClInclude Include="functions.h" />
     <ClInclude Include="Inherit.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="MyException.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="PrintServer.h" />
     <ClInclude Include="PriorityQueue.h" />

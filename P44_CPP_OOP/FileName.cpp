@@ -18,6 +18,8 @@
 #include "Inherit.h"
 #include "Animal.h"
 #include "WorldWar.h"
+#include "MyException.h"
+#include "DateTime.h"
 
 using namespace std;
 
@@ -77,10 +79,77 @@ int main()
 	srand(time(0));
 
 
+	// 01.11.2025
+
+	int a, b;
+	cin >> a >> b;
+	try
+	{
+		List<int> l;
+
+
+		if (b == 0)
+			//throw MyException(DateTime::now().to_longDateTime(), __FILE__, __LINE__, "Div by zero (b = 0)");
+			throw invalid_argument("Div by zero (b = 0)");
+		cout << a / b << endl;
+	}
+	catch (int ex)
+	{
+		cout << ex << endl;
+	}
+	catch (const char* ex)
+	{
+		cout << ex << endl;
+	}
+	catch (MyException& ex)
+	{
+		ex.saveError();
+		cout << ex.getError() << endl;
+	}
+	catch (exception& ex)
+	{
+		cout << ex.what() << endl;
+	}
+	catch (...)
+	{
+		cout << "Fatal error" << endl;
+	}
+	
+
+		
+	/*Animal* ad = new Cat("Tom", 5);
+	Cat* cat = dynamic_cast<Cat*>(ad);
+	if (cat)
+	{
+		cat->catch_mouse();
+		cout << cat->getType() << endl;
+	}*/
+
+
+	//cout << ad.getType() << endl;
+
+	
+	
+	//Animal* p_dog = new Dog("Spike", 5);
+
+
+	/*hash<string> h;
+	cout << h("mama") << endl;*/
+
+
+
 	// 29.10.2025
 
-	WorldWar w(5);
-	w.game();
+	/*try
+	{
+		WorldWar w(5);
+		w.game();
+	}
+	catch (...)
+	{
+		cout << "Fatal error" << endl;
+	}*/
+
 
 
 	// 28.10.2025

@@ -45,6 +45,8 @@ public:
 
 	void catch_mouse() { (*mouse)++; }
 
+	int getMouse() { return *mouse; }
+
 	virtual string getType() override { return "Cat"; }
 
 	virtual string getVoice() override /*final*/ { return "Mau-Mau"; }

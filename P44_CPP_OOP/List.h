@@ -12,8 +12,8 @@ template<class T>
 class List
 {
 	Node<T>* first = nullptr;
-	Node<T>* last  = nullptr;
-	size_t   size  = 0;
+	Node<T>* last = nullptr;
+	size_t   size = 0;
 
 	Node<T>* getNode(int index) const;
 
@@ -65,7 +65,7 @@ size_t List<T>::length() const
 template<class T>
 Node<T>* List<T>::getNode(int index) const
 {
-	Node<T>* pos;
+	Node<T>* pos = nullptr;
 	if (index < size / 2)
 	{
 		pos = first;
@@ -210,9 +210,9 @@ void List<T>::pop_front()
 		delete first;
 		first = temp;
 		size--;
-		if(first != nullptr)
+		if (first != nullptr)
 			first->prev = nullptr;
-		
+
 	}
 }
 
@@ -220,15 +220,15 @@ void List<T>::pop_front()
 template<typename T>
 void List<T>::pop_back()
 {
-	if (size > 0) 
+	if (size > 0)
 	{
-		if (size == 1) 
+		if (size == 1)
 		{
 			delete first;
 			first = last = nullptr;
 			size = 0;
 		}
-		else 
+		else
 		{
 			last = last->prev;
 			delete last->next;
@@ -263,7 +263,6 @@ void List<T>::remove(int index)
 		delete temp;
 		size--;
 	}
-
 }
 
 
@@ -281,5 +280,7 @@ void List<T>::for_each(void(*method)(T& value))
 template<class T>
 T& List<T>::operator[](int index) const
 {
+	if (index < 0 || index >= size)
+		throw invalid_argument("invalid index");
 	return getNode(index)->value;
 }
