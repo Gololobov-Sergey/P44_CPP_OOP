@@ -25,7 +25,8 @@ public:
 	List& operator=(const List& list);
 
 	void push_front(const T& value);
-	void push_back(const T& value);
+	void push_back(T& value);
+	void push_back(T&& value);
 	void insert(const T& value, int index);
 
 	void pop_front();
@@ -136,7 +137,7 @@ void List<T>::push_front(const T& value)
 }
 
 template<class T>
-void List<T>::push_back(const T& value)
+void List<T>::push_back(T& value)
 {
 	if (size == 0)
 	{
@@ -152,8 +153,14 @@ void List<T>::push_back(const T& value)
 }
 
 template<class T>
+inline void List<T>::push_back(T&& value)
+{
+}
+
+template<class T>
 void List<T>::insert(const T& value, int index)
 {
+
 	if (index == 0)
 	{
 		push_front(value);
@@ -165,7 +172,16 @@ void List<T>::insert(const T& value, int index)
 	else
 	{
 		Node<T>* pos = getNode(index);
-		Node<T>* newNode = new Node<T>(value);
+		Node<T>* newNode;
+		try
+		{
+			newNode = new Node<T>(value);
+		}
+		catch (const std::exception&)
+		{
+			throw;
+		}
+		
 		newNode->next = pos->next;
 		pos->next->prev = newNode;
 		pos->next = newNode;

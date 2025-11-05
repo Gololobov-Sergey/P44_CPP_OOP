@@ -20,6 +20,7 @@
 #include "WorldWar.h"
 #include "MyException.h"
 #include "DateTime.h"
+#include "SmartPointer.h"
 
 using namespace std;
 
@@ -40,9 +41,10 @@ void printStudent(Student a)
 }
 
 
-void f(String s)
+Student f(String s)
 {
-
+	Student st;
+	return st;
 }
 
 void mult2(int& a)
@@ -72,48 +74,98 @@ void print_flying(List<IFly*>& fly)
 	}
 }
 
+
+void func666()
+{
+	SmartPointer<Cat> c(new Cat("Tom", 3));
+	
+	
+
+	///
+
+	int a;
+	cin >> a;
+	if (a == 0)
+		return;
+	//
+	//
+
+	//delete an;
+}
+
+
+
 int main()
 {
 	SetColor(Color::White, Color::Blue);
 	system("cls");
 	srand(time(0));
 
-
-	// 01.11.2025
-
-	int a, b;
-	cin >> a >> b;
-	try
-	{
-		List<int> l;
+	// 05.11.2025
 
 
-		if (b == 0)
-			//throw MyException(DateTime::now().to_longDateTime(), __FILE__, __LINE__, "Div by zero (b = 0)");
-			throw invalid_argument("Div by zero (b = 0)");
-		cout << a / b << endl;
-	}
-	catch (int ex)
-	{
-		cout << ex << endl;
-	}
-	catch (const char* ex)
-	{
-		cout << ex << endl;
-	}
-	catch (MyException& ex)
-	{
-		ex.saveError();
-		cout << ex.getError() << endl;
-	}
-	catch (exception& ex)
-	{
-		cout << ex.what() << endl;
-	}
-	catch (...)
-	{
-		cout << "Fatal error" << endl;
-	}
+	
+
+
+	/*func666();
+
+	int a = 9, b = 10;
+
+	swap(a, b);
+
+	int&& r = 10;
+
+	List<Cat> l;
+	Cat c("Tom", 3);
+	l.push_back(c);
+	l.push_back(Cat("sss", 10));
+
+
+	unique_ptr<Cat> uc = make_unique<Cat>("Tom", 3);
+	unique_ptr<Cat> uc1 = move(uc);*/
+
+	/*{
+		shared_ptr<Cat> sh = make_shared<Cat>("Tom", 3);
+		{
+			shared_ptr<Cat> sh1(sh);
+		}
+	}*/
+
+	//// 01.11.2025
+
+	//int a, b;
+	//cin >> a >> b;
+	//try
+	//{
+	//	List<int> l;
+
+
+	//	if (b == 0)
+	//		//throw MyException(DateTime::now().to_longDateTime(), __FILE__, __LINE__, "Div by zero (b = 0)");
+	//		throw invalid_argument("Div by zero (b = 0)");
+	//	cout << a / b << endl;
+	//}
+	//catch (int ex)
+	//{
+	//	cout << ex << endl;
+	//}
+	//catch (const char* ex)
+	//{
+	//	cout << ex << endl;
+	//}
+	//catch (MyException& ex)
+	//{
+	//	ex.saveError();
+	//	cout << ex.getError() << endl;
+	//}
+	//catch (exception& ex)
+	//{
+	//	cout << ex.what() << endl;
+	//}
+	//catch (...)
+	//{
+	//	cout << "Fatal error" << endl;
+	//}
 	
 
 		
