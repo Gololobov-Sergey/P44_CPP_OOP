@@ -21,6 +21,9 @@
 #include "MyException.h"
 #include "DateTime.h"
 #include "SmartPointer.h"
+#include <vector>
+#include <list>
+#include <chrono>
 
 using namespace std;
 
@@ -78,8 +81,8 @@ void print_flying(List<IFly*>& fly)
 void func666()
 {
 	SmartPointer<Cat> c(new Cat("Tom", 3));
-	
-	
+
+
 
 	///
 
@@ -94,6 +97,11 @@ void func666()
 }
 
 
+bool big10(int a)
+{
+	return a > 10;
+}
+
 
 int main()
 {
@@ -101,10 +109,115 @@ int main()
 	system("cls");
 	srand(time(0));
 
+
+
+	// 08.11.2025
+
+
+	/*vector<int> v = { 1,2,4,6,98,0 };
+	for (auto e : v)
+	{
+		cout << e << " ";
+	}
+	cout << endl;
+
+	auto it = v.begin() + 3;
+	cout << *it << endl;
+
+	for (auto i = v.begin(); i != v.end(); i++)
+	{
+		cout << *i << " ";
+	}
+	cout << endl;
+
+	for (size_t i = 0; i < v.size(); i++)
+	{
+		cout << v[i] << " ";
+	}
+	cout << endl;
+
+	cout << v.max_size() << endl;
+	cout << v.capacity() << endl;
+	v.push_back(99);
+	cout << v.capacity() << endl;
+	cout << v.size() << endl;
+	v.shrink_to_fit();
+	cout << v.capacity() << endl;
+	cout << v.size() << endl;
+
+	int a = 999;
+	v.insert(v.begin() + 4, a);
+	for (size_t i = 0; i < v.size(); i++)
+	{
+		cout << v[i] << " ";
+	}
+	cout << endl;*/
+
+	/*erase(v, 999);
+	for (size_t i = 0; i < v.size(); i++)
+	{
+		cout << v[i] << " ";
+	}
+	cout << endl;
+
+	erase_if(v, [](int a) {return a < 10; });
+	for (size_t i = 0; i < v.size(); i++)
+	{
+		cout << v[i] << " ";
+	}
+	cout << endl;*/
+
+
+	/*list<int> l = { 8,7,7,8,9,6,7,8 };
+
+	auto i = l.begin();
+	advance(i, 2);
+
+	i = next(i, 2);
+
+	l.insert(next(l.begin(), 2), v.begin() + 2, v.begin() + 5);
+	for (int el : l)
+	{
+		cout << el << " ";
+	}
+	cout << endl;*/
+
+
+
+	/*int b = 100, c = 888;
+	auto f = [&](int a) -> int
+		{ 
+			if (a == b)
+				return 100;
+			else
+				return 100.0;
+		};
+	f(100);*/
+
+
+	//list<Student> vs;
+	//vs.insert(vs.begin(), Student("Vasya", 24, 10));
+	//vs.emplace_back("Petya", 14, 6);
+	//vs.emplace_back("Kolya", 34, 6);
+	//vs.emplace_back("Anna", 4, 6);
+
+	////vs.sort([](const Student& s1, const Student& s2) { return strcmp(s1.getName(), s2.getName()) < 0; });
+	//vs.sort([](const Student& s1, const Student& s2) { return s1.getAge() < s2.getAge(); });
+
+	//for (Student& s : vs)
+	//{
+	//	cout << s.getName() << endl;
+	//}
+
+
+	DateTime d(2025, 11, 8);
+	cout << DateTime::now() << endl;
+
+
 	// 05.11.2025
 
 
-	
+
 
 
 	/*func666();
@@ -166,9 +279,9 @@ int main()
 	//{
 	//	cout << "Fatal error" << endl;
 	//}
-	
 
-		
+
+
 	/*Animal* ad = new Cat("Tom", 5);
 	Cat* cat = dynamic_cast<Cat*>(ad);
 	if (cat)
@@ -180,8 +293,8 @@ int main()
 
 	//cout << ad.getType() << endl;
 
-	
-	
+
+
 	//Animal* p_dog = new Dog("Spike", 5);
 
 
@@ -285,14 +398,14 @@ int main()
 	//w.age = 30;*/
 	////w.workTime = 5;
 	//w.print();
-	
-	
+
+
 	/*Director d;
 
 	int val = 22;
 	printf("%s = %d%%", "Value", val);*/
 
-	
+
 
 	/*A a;
 	B b;*/
@@ -455,7 +568,7 @@ int main()
 	// ()
 
 
-	/*Fraction f1(3, 4);	
+	/*Fraction f1(3, 4);
 	Fraction f2(5, 40);*/
 	//Fraction f3 = f1.add(f2);
 	//Fraction f3 = -f1; // f1.operator-();
@@ -470,7 +583,7 @@ int main()
 
 	//Fraction f4 = f1 + 10;
 	//Fraction f5 = 10 + f1; // Error // 10.operator+(f1);
-	
+
 	/*if (f1 == f2)
 	{
 		cout << "Yes" << endl;
@@ -593,12 +706,12 @@ int main()
 
 
 	/*const int t = 5;
-	
+
 	int a = 10.55;
 	int b(10.55);
 	int c{ 10 };
 
-	
+
 
 	cout << "Count : " << Student::getCount() << endl;
 	{
@@ -613,7 +726,7 @@ int main()
 
 	func();*/
 
-	
+
 	//Array b(10);
 	////b.fill(5);
 	//b.randomFill(5, 15);
@@ -625,5 +738,5 @@ int main()
 	//b.add(99);
 	//b.print();
 
-	
+
 }
