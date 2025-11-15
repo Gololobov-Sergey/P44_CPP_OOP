@@ -24,6 +24,8 @@
 #include <vector>
 #include <list>
 #include <chrono>
+#include <algorithm>
+#include <random>
 
 using namespace std;
 
@@ -102,14 +104,83 @@ bool big10(int a)
 	return a > 10;
 }
 
+template<class Container>
+void print(Container& c)
+{
+	for (auto el : c)
+	{
+		cout << el << " ";
+	}
+	cout << endl;
+}
+
+
+
+class Random {
+public:
+	template<typename T>
+	static T get(T from, T to) {
+		static thread_local std::mt19937 generator(std::random_device{}());
+
+		if constexpr (std::is_integral<T>::value) {
+			std::uniform_int_distribution<T> dist(from, to);
+			return dist(generator);
+		}
+		else if constexpr (std::is_floating_point<T>::value) {
+			std::uniform_real_distribution<T> dist(from, to);
+			return dist(generator);
+		}
+	}
+};
+
+void gen(vector<int>& v)
+{
+	generate(v.begin(), v.end(), []() { return Random::get(0, 100); });
+}
+
 
 int main()
 {
 	SetColor(Color::White, Color::Blue);
+	cout.setf(ios::boolalpha);
 	system("cls");
 	srand(time(0));
 
 
+	vector<int> v = { 1,2,4,2,98,0 };
+	vector<string> s(6);
+	//print(v);
+	//for_each(v.begin(), v.end(), [](int& a) {a *= 2; });
+	print(v);
+	//cout << all_of(v.begin(), v.end(), [](int& a) { return a > 0; }) << endl;
+
+	//auto it = find(v.begin(), v.end(), 120);
+	//auto it = find_if(v.begin(), v.end(), [](int& a) { return a > 1000; });
+	/*auto it = find_if(v.begin(), v.end(), [](int& a) { return a > 1000; });
+	if(it != v.end())
+		cout << *it << endl;*/
+
+	//cout << count_if(v.begin(), v.end(), [](int& a) { return a < 10; }) << endl;
+
+	//copy_if(v.begin(), v.end(), ostream_iterator<int>(cout, " "), [](int a) {return a % 2 == 0; });
+
+	//replace(v.begin(), v.end(), 2, 100);
+	//replace_if(v.begin(), v.end(), [](int a) {return a % 2 == 0; }, 100);
+	//print(v);
+
+	//transform(v.cbegin(), v.cend(), s.begin(), [](int val) { return to_string(val); });
+	//print(s);
+
+	vector<int> vv(10);
+	//generate(vv.begin(), vv.end(), rand);
+	gen(vv);
+	print(vv);
+	sort(vv.begin(), vv.end());
+	print(vv);
+	std::random_device rd;
+	std::mt19937 g(rd());
+	shuffle(vv.begin(), vv.end(), g);
+	print(vv);
 
 	// 08.11.2025
 
@@ -210,8 +281,8 @@ int main()
 	//}
 
 
-	DateTime d(2025, 11, 8);
-	cout << DateTime::now() << endl;
+	/*DateTime d(2025, 11, 8);
+	cout << DateTime::now() << endl;*/
 
 
 	// 05.11.2025
